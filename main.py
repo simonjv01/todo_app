@@ -3,7 +3,7 @@
 todos = []
 
 while True:
-    user_action = input("Type add or show:")
+    user_action = input("Type add, show, or exit:")
 
     match user_action:
         case "add":
@@ -12,6 +12,8 @@ while True:
         case "show":
             for todo in todos:
                 print(todo)
+        case "exit":
+            break
         case _:
             print("Invalid action. Please try again.")
 
