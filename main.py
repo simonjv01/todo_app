@@ -15,8 +15,8 @@ while True:
                 print(item)
         case "edit":
             number = int(input("Number of the todo item to edit: "))
-            existing_todo = todos[number]
-            print(existing_todo)
+            number = number - 1
+            todos[number] = input("Enter new todo: ")
         case "exit":
             break
         case whatever:
