@@ -11,8 +11,8 @@ while True:
             todo = input("Enter a todo item:")
             todos.append(todo)
         case "show":
-            for item in todos:
-                print(item)
+            for index, item in enumerate(todos, start=1):
+                print(index, '-', item, sep='')
         case "edit":
             number = int(input("Number of the todo item to edit: "))
             number = number - 1
