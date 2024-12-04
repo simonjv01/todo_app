@@ -3,7 +3,7 @@
 todos = []
 
 while True:
-    user_action = input("Type add, show, edit, or exit:")
+    user_action = input("Type add, show, complete, edit, or exit:")
     user_action = user_action.strip()
 
     match user_action:
@@ -18,6 +18,10 @@ while True:
             number = int(input("Number of the todo item to edit: "))
             number = number - 1
             todos[number] = input("Enter new todo: ")
+        case "complete":
+            number = int(input("Number of the todo item to complete: "))
+            number = number - 1
+            todos.pop(number)
         case "exit":
             break
         case whatever:
