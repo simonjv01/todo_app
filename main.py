@@ -20,6 +20,9 @@ while True:
             file.writelines(todos)
             file.close()
         case "show":
+            file = open("todos.txt", "r")
+            todos = file.readlines()
+            file.close()
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
                 print(f"{index}.{item}")
