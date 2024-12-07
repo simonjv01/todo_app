@@ -1,3 +1,6 @@
 book
 toy
 bike
+toy
+clean room
+buy book

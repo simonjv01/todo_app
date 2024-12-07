@@ -8,10 +8,17 @@ while True:
 
     match user_action:
         case "add":
-            todo = input("Enter a todo item:")
+            todo = input("Enter a todo item:") + "\n"
+
+            file = open("todos.txt", "r")
+            todos = file.readlines()
+            file.close()
+
             todos.append(todo)
-            file = open("todos.txt", "a")
-            file.write(todo + "\n")
+
+            file = open("todos.txt", "w")
+            file.writelines(todos)
+            file.close()
         case "show":
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
