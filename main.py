@@ -10,6 +10,8 @@ while True:
         case "add":
             todo = input("Enter a todo item:")
             todos.append(todo)
+            file = open("todos.txt", "a")
+            file.write(todo + "\n")
         case "show":
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
