@@ -30,6 +30,11 @@ while True:
             number = int(input("Number of the todo item to edit: "))
             number = number - 1
             todos[number] = input("Enter new todo: ")
+
+            file = open("files/todos.txt", "w")
+            file.writelines(todos)
+            file.close()
+
         case "complete":
             number = int(input("Number of the todo item to complete: "))
             number = number - 1
