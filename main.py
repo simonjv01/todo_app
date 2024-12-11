@@ -23,6 +23,13 @@ while True:
             file = open("files/todos.txt", "r")
             todos = file.readlines()
             file.close()
+
+            new_todos = []
+            for todo in todos:
+                new_todos.append(todo.strip('\n'))
+            todos = new_todos
+            
+
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
                 print(f"{index}.{item}")
