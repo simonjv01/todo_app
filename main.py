@@ -16,13 +16,13 @@ while True:
 
             todos.append(todo)
 
-            file = open("files/todos.txt", "w")
-            file.writelines(todos)
-            file.close()
+            with open("files/todos.txt", "w") as file:
+                file.writelines(todos)
+
         case "show":
-            file = open("files/todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+
+            with open("files/todos.txt", "r") as file:
+                todos = file.readlines()
 
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
@@ -33,9 +33,8 @@ while True:
             number = number - 1
             todos[number] = input("Enter new todo: ")
 
-            file = open("files/todos.txt", "w")
-            file.writelines(todos)
-            file.close()
+            with open("files/todos.txt", "w") as file:
+                file.writelines(todos)
 
         case "complete":
             number = int(input("Number of the todo item to complete: "))
