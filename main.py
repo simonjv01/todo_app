@@ -6,8 +6,7 @@ while True:
     user_action = input("Type add, show, complete, edit, or exit:")
     user_action = user_action.strip()
 
-    match user_action:
-        case "add":
+    if 'add' in user_action:
             todo = input("Enter a todo item:") + "\n"
 
 
@@ -19,7 +18,7 @@ while True:
             with open("files/todos.txt", "w") as file:
                 file.writelines(todos)
 
-        case "show":
+    elif 'show' in user_action:
 
             with open("files/todos.txt", "r") as file:
                 todos = file.readlines()
@@ -28,7 +27,7 @@ while True:
                # print(index, '-', item, sep='')
                 item = item.strip('\n')
                 print(f"{index}.{item}")
-        case "edit":
+    elif 'edit' in user_action:
             number = int(input("Number of the todo item to edit: "))
             number = number - 1
 
@@ -37,14 +36,29 @@ while True:
 
             new_todo = input("Enter a new todo item:") + "\n"
             todos[number] = new_todo
-        case "complete":
+
+            with open("files/todos.txt", "w") as file:
+                file.writelines(todos)
+    elif 'complete' in user_action:
             number = int(input("Number of the todo item to complete: "))
-            number = number - 1
-            todos.pop(number)
-        case "exit":
-            break
-        case whatever:
-            print("Invalid action. Please try again.")
+
+            with open("files/todos.txt", "r") as file:
+                todos = file.readlines()
+            index = number - 1
+            todo_to_complete = todos[index].strip('\n')
+
+            todos.pop(index)
+
+            with open("files/todos.txt", "w") as file:
+                file.writelines(todos)
+
+            message = f"Todo item {todo_to_complete} has been completed."
+            print(message)
+    elif 'exit' in user_action:
+        break
+    else:
+        print("Invalid action. Please try again.")
+        continue    
 
 print("Bye!")
 
