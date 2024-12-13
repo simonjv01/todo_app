@@ -2,3 +2,5 @@ book
 toy
 bike
 clean room
+read
+buy candy

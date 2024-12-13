@@ -10,9 +10,9 @@ while True:
         case "add":
             todo = input("Enter a todo item:") + "\n"
 
-            file = open("files/todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+
+            with open("files/todos.txt", "r") as file:
+                todos = file.readlines()
 
             todos.append(todo)
 
@@ -23,13 +23,6 @@ while True:
             file = open("files/todos.txt", "r")
             todos = file.readlines()
             file.close()
-
-
-            # for todo in todos:
-            #     new_todos.append(todo.strip('\n'))
-            # todos = new_todos
-            # new_todos = [todo.strip('\n') for todo in todos]
-
 
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
