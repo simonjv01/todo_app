@@ -8,8 +8,7 @@ while True:
 
     if 'add' in user_action:
             todo = user_action[4:] + "\n"
-
-
+            
             with open("files/todos.txt", "r") as file:
                 todos = file.readlines()
 
