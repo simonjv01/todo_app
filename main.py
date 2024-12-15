@@ -7,7 +7,7 @@ while True:
     user_action = user_action.strip()
 
     if 'add' in user_action:
-            todo = input("Enter a todo item:") + "\n"
+            todo = user_action[4:] + "\n"
 
 
             with open("files/todos.txt", "r") as file:
