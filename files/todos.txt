@@ -1,4 +1,4 @@
 read book
-toy
+buy toy
 clean room
-fix the computer
+go to gym
