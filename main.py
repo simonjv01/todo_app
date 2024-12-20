@@ -26,8 +26,12 @@ while True:
                # print(index, '-', item, sep='')
                 item = item.strip('\n')
                 print(f"{index}.{item}")
+
     elif user_action.startswith('edit'):
+        try:
             number = int(user_action[5:])
+
+            number = number - 1
 
             with open("files/todos.txt", "r") as file:
                 todos = file.readlines()
@@ -37,7 +41,12 @@ while True:
 
             with open("files/todos.txt", "w") as file:
                 file.writelines(todos)
+        except ValueError:
+             print("Invalid number. Please try again.")
+             continue
+
     elif user_action.startswith('complete'):
+        try:
             number = int(input("Number of the todo item to complete: "))
 
             with open("files/todos.txt", "r") as file:
@@ -52,6 +61,9 @@ while True:
 
             message = f"Todo item {todo_to_complete} has been completed."
             print(message)
+        except IndexError:
+            print("Invalid number. Please try again.")
+            continue
     elif user_action.startswith('exit'):
         break
     else:
