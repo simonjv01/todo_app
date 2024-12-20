@@ -47,7 +47,7 @@ while True:
 
     elif user_action.startswith('complete'):
         try:
-            number = int(input("Number of the todo item to complete: "))
+            number = int(user_action[9:])
 
             with open("files/todos.txt", "r") as file:
                 todos = file.readlines()
