@@ -1,6 +1,9 @@
+def get_todos():
+    with open("files/todos.txt", "r") as file:
+        todos = file.readlines()
+    return todos
 
 
-todos = []
 
 while True:
     user_action = input("Type add or new then a todo, show, complete, edit, or exit:")
@@ -9,8 +12,7 @@ while True:
     if user_action.startswith('add') or user_action.startswith('new'):
             todo = user_action[4:] + "\n"
             
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            get_todos()
 
             todos.append(todo)
 
