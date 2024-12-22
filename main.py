@@ -12,7 +12,7 @@ while True:
     if user_action.startswith('add') or user_action.startswith('new'):
             todo = user_action[4:] + "\n"
             
-            get_todos()
+            todos = get_todos()
 
             todos.append(todo)
 
@@ -21,8 +21,7 @@ while True:
 
     elif 'show' in user_action:
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
@@ -35,8 +34,7 @@ while True:
 
             number = number - 1
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             new_todo = input("Enter a new todo item:") + "\n"
             todos[number] = new_todo
@@ -51,8 +49,7 @@ while True:
         try:
             number = int(user_action[9:])
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
             index = number - 1
             todo_to_complete = todos[index].strip('\n')
 
