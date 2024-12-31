@@ -1,5 +1,5 @@
-def get_todos():
-    with open("files/todos.txt", "r") as file_local:
+def get_todos(filepath):
+    with open(filepath, "r") as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
