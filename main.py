@@ -4,6 +4,11 @@ def get_todos(filepath):
     return todos_local
 
 
+def write_todos():
+     with open("files/todos.txt", "w") as file:
+        file.write(todos)
+
+
 
 while True:
     user_action = input("Type add or new then a todo, show, complete, edit, or exit:")
