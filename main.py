@@ -43,8 +43,7 @@ while True:
             new_todo = input("Enter a new todo item:") + "\n"
             todos[number] = new_todo
 
-            with open("files/todos.txt", "w") as file:
-                file.writelines(todos)
+            write_todos("files/todos.txt", todos)
         except ValueError:
              print("Invalid number. Please try again.")
              continue
