@@ -6,7 +6,7 @@ def get_todos(filepath="files/todos.txt"):
     return todos_local
 
 
-def write_todos(filepath, todos_arg):
+def write_todos(todos_arg, filepath="files/todos.txt"):
      with open(filepath, "w") as file_local:
         file_local.writelines(todos_arg)
 
@@ -17,8 +17,7 @@ while True:
     if 'add' in user_action or 'new' in user_action:
             todo = user_action[4:] + "\n"
             
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             todos.append(todo)
 
@@ -27,8 +26,7 @@ while True:
 
     elif 'show' in user_action:
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
@@ -38,8 +36,7 @@ while True:
             number = int(input("Number of the todo item to edit: "))
             number = number - 1
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             new_todo = input("Enter a new todo item:") + "\n"
             todos[number] = new_todo
@@ -49,8 +46,7 @@ while True:
     elif 'complete' in user_action:
             number = int(input("Number of the todo item to complete: "))
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
             index = number - 1
             todo_to_complete = todos[index].strip('\n')
 
