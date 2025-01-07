@@ -21,8 +21,7 @@ while True:
 
             todos.append(todo)
 
-            with open("files/todos.txt", "w") as file:
-                file.writelines(todos)
+            write_todos(todos, "files/todos.txt")
 
     elif 'show' in user_action:
 
@@ -41,8 +40,7 @@ while True:
             new_todo = input("Enter a new todo item:") + "\n"
             todos[number] = new_todo
 
-            with open("files/todos.txt", "w") as file:
-                file.writelines(todos)
+            write_todos(todos, "files/todos.txt")
     elif 'complete' in user_action:
             number = int(input("Number of the todo item to complete: "))
 
@@ -52,8 +50,7 @@ while True:
 
             todos.pop(index)
 
-            with open("files/todos.txt", "w") as file:
-                file.writelines(todos)
+            write_todos(todos, "files/todos.txt")
 
             message = f"Todo item {todo_to_complete} has been completed."
             print(message)
