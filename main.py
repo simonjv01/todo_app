@@ -1,4 +1,5 @@
-from functions import get_todos, write_todos
+# from functions import get_todos, write_todos
+import functions
 
 
 while True:
@@ -8,15 +9,15 @@ while True:
     if 'add' in user_action or 'new' in user_action:
             todo = user_action[4:] + "\n"
             
-            todos = get_todos()
+            todos = functions.get_todos()
 
             todos.append(todo)
 
-            write_todos(todos, "files/todos.txt")
+            functions.write_todos(todos, "files/todos.txt")
 
     elif 'show' in user_action:
 
-            todos = get_todos()
+            todos = functions.get_todos()
 
             for index, item in enumerate(todos, start=1):
                # print(index, '-', item, sep='')
@@ -26,22 +27,22 @@ while True:
             number = int(input("Number of the todo item to edit: "))
             number = number - 1
 
-            todos = get_todos()
+            todos = functions.get_todos()
 
             new_todo = input("Enter a new todo item:") + "\n"
             todos[number] = new_todo
 
-            write_todos(todos, "files/todos.txt")
+            functions.write_todos(todos, "files/todos.txt")
     elif 'complete' in user_action:
             number = int(input("Number of the todo item to complete: "))
 
-            todos = get_todos()
+            todos = functions.get_todos()
             index = number - 1
             todo_to_complete = todos[index].strip('\n')
 
             todos.pop(index)
 
-            write_todos(todos, "files/todos.txt")
+            functions.write_todos(todos, "files/todos.txt")
 
             message = f"Todo item {todo_to_complete} has been completed."
             print(message)
