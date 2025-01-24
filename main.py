@@ -1,5 +1,5 @@
 # from functions import get_todos, write_todos
-import functions
+import modules.functions as functions
 
 
 while True:
