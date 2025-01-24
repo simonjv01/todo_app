@@ -8,4 +8,6 @@ def write_todos(todos_arg, filepath="files/todos.txt"):
      with open(filepath, "w") as file_local:
         file_local.writelines(todos_arg)
 
-print("hello from functions")
+
+if __name__ == "__main__":
+    print("hello from functions")
