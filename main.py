@@ -2,6 +2,8 @@
 import modules.functions as functions
 import time
 
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print("Welcome to the Todo App! The current time is", now)
 
 while True:
     user_action = input("Type add or new then a todo, show, complete, edit, or exit:")
