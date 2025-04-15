@@ -11,9 +11,11 @@ window = sg.Window("My Todo App",
                    layout=[[label], [input_box], [add_button]], 
                    font=("Helvetica", 20))
 
-event = window.read()
-print(event)
-window.close()
+while True:
+    event, values = window.read()
+    print(event)
+    print(values)
+    window.close()
 
 
 
