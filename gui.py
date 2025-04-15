@@ -15,7 +15,15 @@ while True:
     event, values = window.read()
     print(event)
     print(values)
-    window.close()
+    match event:
+        case "Add":
+            todos = functions.get_todos()
+            new_todo = values['todo'] + "\n"
+            todos.append(new_todo)
+            functions.write_todos(todos)
+
+
+window.close()
 
 
 
