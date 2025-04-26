@@ -18,13 +18,21 @@ window = sg.Window("My Todo App",
 
 while True:
     event, values = window.read()
-    print(event)
-    print(values)
+    print(1, event)
+    print(2, values)
+    print(3, values['todos'])
     match event:
         case "Add":
             todos = functions.get_todos()
             new_todo = values['todo'] + "\n"
             todos.append(new_todo)
+            functions.write_todos(todos)
+        case "Edit":
+            todo_to_edit = values['todos'][0]
+            new_todo = values['todo'] + "\n"
+            todos = functions.get_todos()
+            index = todos.index(todo_to_edit)
+            todos[index] = new_todo
             functions.write_todos(todos)
         case sg.WIN_CLOSED:
             break       
