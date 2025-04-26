@@ -10,9 +10,10 @@ list_box = sg.Listbox(values=functions.get_todos(),
                       key="todos", 
                       enable_events=True, 
                       size=[45, 10])
+edit_button = sg.Button("Edit")
 
 window = sg.Window("My Todo App", 
-                   layout=[[label], [input_box], [add_button], []], 
+                   layout=[[label, input_box], [add_button], [list_box, edit_button]], 
                    font=("Helvetica", 20))
 
 while True:
