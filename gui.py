@@ -34,6 +34,7 @@ while True:
             index = todos.index(todo_to_edit)
             todos[index] = new_todo
             functions.write_todos(todos)
+            window['todos'].update(values=todos)
         case sg.WIN_CLOSED:
             break       
 
